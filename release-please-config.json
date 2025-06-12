@@ -1,0 +1,58 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "bootstrap-sha": "b29649232499a3bf9436801500d00d89deaeb2c6",
+  "changelog-sections": [
+    {
+      "section": "Features",
+      "type": "feat"
+    },
+    {
+      "section": "Bug Fixes",
+      "type": "fix"
+    },
+    {
+      "section": "Documentation",
+      "type": "docs"
+    },
+    {
+      "section": "Code Refactoring",
+      "type": "refactor"
+    },
+    {
+      "section": "Code Style & Linting",
+      "type": "style"
+    },
+    {
+      "section": "Miscellaneous Chores",
+      "type": "chore"
+    },
+    {
+      "section": "Tests",
+      "type": "test"
+    },
+    {
+      "section": "Continuous Integration",
+      "type": "ci"
+    },
+    {
+      "section": "Build System",
+      "type": "build"
+    },
+    {
+      "section": "Performance Improvements",
+      "type": "perf"
+    },
+    {
+      "section": "Reverts",
+      "type": "revert"
+    }
+  ],
+  "include-component-in-tag": false,
+  "packages": {
+    ".": {
+      "component": "gha-runner-image",
+      "initial-version": "0.0.1"
+    }
+  },
+  "release-type": "simple"
+}
