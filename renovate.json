@@ -1,0 +1,12 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":separatePatchReleases",
+    ":separateMultipleMajorReleases",
+    ":separateMultipleMinorReleases",
+    "customManagers:dockerfileVersions"
+  ],
+  "baseBranches": ["main"],
+  "addLabels": ["renovate", "type/{{updateType}}", "dep/{{depNameSanitized}}"]
+}
