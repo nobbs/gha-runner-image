@@ -1,0 +1,75 @@
+name: Build and Push Runner Image
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "images/**"
+
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: "read"
+      id-token: "write"
+      checks: "write"
+      packages: "write"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: |
+            ${{ github.repository }}
+          tags: |
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+
+      - name: Build image
+        id: build
+        uses: docker/build-push-action@v6
+        with:
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          context: images/ubuntu-24.04
+          file: images/ubuntu-24.04/Dockerfile
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${ steps.meta.outputs.labels }
+          push: true
+          load: true
+
+      - name: Scan image with grype
+        id: scan
+        uses: anchore/scan-action@v6
+        with:
+          image: ${{ steps.build.outputs.imageid }}
+          fail-build: false
+
+      - name: Upload scan results
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: ${{ steps.scan.outputs.sarif }}
