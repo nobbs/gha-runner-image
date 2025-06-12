@@ -5,7 +5,8 @@
     ":separatePatchReleases",
     ":separateMultipleMajorReleases",
     ":separateMultipleMinorReleases",
-    "customManagers:dockerfileVersions"
+    "customManagers:dockerfileVersions",
+    "helpers:pinGitHubActionDigests"
   ],
   "baseBranches": ["main"],
   "addLabels": ["renovate", "type/{{updateType}}", "dep/{{depNameSanitized}}"]
