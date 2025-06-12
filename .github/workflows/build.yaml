@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "images/**"
+      - "CHANGELOG.md" # to also trigger on release-please managed PRs for upcoming releases
 
   push:
     tags:
