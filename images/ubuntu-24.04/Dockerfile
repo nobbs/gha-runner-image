@@ -48,6 +48,29 @@ curl -fLo /usr/local/lib/docker/cli-plugins/docker-buildx https://github.com/doc
 chmod +x /usr/local/lib/docker/cli-plugins/docker-buildx
 EOF
 
+# renovate: datasource=docker depName=curl-image packageName=curlimages/curl
+FROM curlimages/curl:8.12.1 AS installer
+
+RUN mkdir -p /tmp/bin
+
+WORKDIR /tmp/build
+
+### Install kubectl
+
+FROM installer AS install-kubectl
+
+# renovate: datasource=github-releases depName=kubectl packageName=kubernetes/kubernetes
+ARG KUBECTL_VERSION=1.32.5
+
+RUN /bin/sh <<EOF
+set -euo pipefail
+curl -fLO https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl
+mv kubectl /tmp/bin/kubectl
+chmod 755 /tmp/bin/kubectl
+EOF
+
+### Build final image
+
 FROM ubuntu:24.04 AS runner
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -86,6 +109,9 @@ WORKDIR /home/runner
 
 COPY --chown=runner:docker --from=build /actions-runner .
 COPY --chown=runner:docker --from=build /usr/local/lib/docker/cli-plugins/docker-buildx /usr/local/lib/docker/cli-plugins/docker-buildx
+
+# Copy binaries from previous installer stages
+COPY --link --from=install-kubectl /tmp/bin/kubectl /usr/local/bin/
 
 RUN /bin/bash <<EOF
 set -euo pipefail
