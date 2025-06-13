@@ -78,7 +78,7 @@ ARG HELM_VERSION=3.18.2
 
 RUN /bin/sh <<EOF
 set -euo pipefail
-curl -fLO https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz
+curl -fLO https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz
 tar xvf helm-v${HELM_VERSION}-linux-amd64.tar.gz
 mv linux-amd64/helm /tmp/bin/helm
 chmod 755 /tmp/bin/helm
