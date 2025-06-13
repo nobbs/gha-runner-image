@@ -69,6 +69,21 @@ mv kubectl /tmp/bin/kubectl
 chmod 755 /tmp/bin/kubectl
 EOF
 
+### Install helm
+
+FROM installer AS install-helm
+
+# renovate: datasource=github-releases depName=helm packageName=helm/helm
+ARG HELM_VERSION=3.18.2
+
+RUN /bin/sh <<EOF
+set -euo pipefail
+curl -fLO https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz
+tar xvf helm-v${HELM_VERSION}-linux-amd64.tar.gz
+mv linux-amd64/helm /tmp/bin/helm
+chmod 755 /tmp/bin/helm
+EOF
+
 ### Build final image
 
 FROM ubuntu:24.04 AS runner
@@ -112,6 +127,7 @@ COPY --chown=runner:docker --from=build /usr/local/lib/docker/cli-plugins/docker
 
 # Copy binaries from previous installer stages
 COPY --link --from=install-kubectl /tmp/bin/kubectl /usr/local/bin/
+COPY --link --from=install-helm /tmp/bin/helm /usr/local/bin/
 
 RUN /bin/bash <<EOF
 set -euo pipefail
