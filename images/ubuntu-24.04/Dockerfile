@@ -89,8 +89,8 @@ RUN <<EOF
 set -euo pipefail
 curl -fLO https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz
 curl -fLO https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum
-cat helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum | sha256sum -c -
-tar xvf helm-v${HELM_VERSION}-linux-amd64.tar.gz
+sha256sum -c helm-v${HELM_VERSION}-linux-amd64.tar.gz.sha256sum
+tar xzf helm-v${HELM_VERSION}-linux-amd64.tar.gz
 mv linux-amd64/helm /tmp/bin/helm
 chmod 755 /tmp/bin/helm
 rm -rf /tmp/build
