@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.1.0](https://github.com/nobbs/gha-runner-image/compare/v0.0.1...v0.1.0) (2025-06-13)
+
+
+### Features
+
+* add `helm` ([#15](https://github.com/nobbs/gha-runner-image/issues/15)) ([9d11868](https://github.com/nobbs/gha-runner-image/commit/9d11868c84a94f3b1afeceda61d83911c15349d4))
+
+
+### Bug Fixes
+
+* **build:** add SHA to SARIF report upload step ([9d11868](https://github.com/nobbs/gha-runner-image/commit/9d11868c84a94f3b1afeceda61d83911c15349d4))
+* **dockerfile:** streamline script execution and add checksum verification for kubectl and helm installations ([9d11868](https://github.com/nobbs/gha-runner-image/commit/9d11868c84a94f3b1afeceda61d83911c15349d4))
+* **helm:** correct helm download URL format ([9d11868](https://github.com/nobbs/gha-runner-image/commit/9d11868c84a94f3b1afeceda61d83911c15349d4))
+
+
+### Miscellaneous Chores
+
+* apply suggestions from code review ([9d11868](https://github.com/nobbs/gha-runner-image/commit/9d11868c84a94f3b1afeceda61d83911c15349d4))
+
+
+### Continuous Integration
+
+* **build:** ensure correct reference for SARIF report upload based on ref type ([9d11868](https://github.com/nobbs/gha-runner-image/commit/9d11868c84a94f3b1afeceda61d83911c15349d4))
+
 ## 0.0.1 (2025-06-12)
 
 
