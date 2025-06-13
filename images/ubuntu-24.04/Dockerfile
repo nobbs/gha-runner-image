@@ -60,7 +60,7 @@ WORKDIR /tmp/build
 FROM installer AS install-kubectl
 
 # renovate: datasource=github-releases depName=kubectl packageName=kubernetes/kubernetes
-ARG KUBECTL_VERSION=1.32.5
+ARG KUBECTL_VERSION=1.33.1
 
 RUN /bin/sh <<EOF
 set -euo pipefail
