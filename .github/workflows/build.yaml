@@ -76,6 +76,7 @@ jobs:
         with:
           sarif_file: ${{ steps.scan.outputs.sarif }}
           ref: ${{ github.ref_type == 'tag' && 'refs/heads/main' || github.ref }}
+          sha: ${{ github.sha }}
 
       - name: Inspect action SARIF report
         run: cat ${{ steps.scan.outputs.sarif }}
