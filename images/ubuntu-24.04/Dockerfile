@@ -53,7 +53,7 @@ chmod +x /usr/local/lib/docker/cli-plugins/docker-buildx
 EOF
 
 # renovate: datasource=docker depName=curl-image packageName=curlimages/curl
-FROM curlimages/curl:8.13.0 AS installer
+FROM curlimages/curl:8.14.1 AS installer
 
 RUN mkdir -p /tmp/bin
 
