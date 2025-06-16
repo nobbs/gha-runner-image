@@ -82,7 +82,7 @@ EOF
 FROM installer AS install-helm
 
 # renovate: datasource=github-releases depName=helm packageName=helm/helm
-ARG HELM_VERSION=3.18.2
+ARG HELM_VERSION=3.18.3
 
 RUN <<EOF
 #!/bin/sh
