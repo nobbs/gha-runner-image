@@ -12,6 +12,11 @@ on:
     tags:
       - "*"
 
+  schedule:
+    - cron: "0 0 * * *" # Daily at midnight UTC
+
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -62,7 +67,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           load: true
-          push: true
+          push: ${{ github.event_name != 'schedule' && github.event_name != 'workflow_dispatch' }}
 
       - name: Scan image with grype
         id: scan
