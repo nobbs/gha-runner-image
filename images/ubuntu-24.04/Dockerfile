@@ -12,7 +12,7 @@ ARG RUNNER_CONTAINER_HOOKS_VERSION=0.7.0
 ARG DOCKER_VERSION=28.2.2
 
 # # renovate: datasource=github-releases depName=buildx packageName=docker/buildx
-ARG BUILDX_VERSION=0.24.0
+ARG BUILDX_VERSION=0.25.0
 
 COPY ./files/etc/apt/apt.conf.d/99-fix-bad-proxy /etc/apt/apt.conf.d/99-fix-bad-proxy
 
