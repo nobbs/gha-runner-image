@@ -6,8 +6,15 @@
     ":separateMultipleMajorReleases",
     ":separateMultipleMinorReleases",
     "customManagers:dockerfileVersions",
-    "helpers:pinGitHubActionDigests"
+    "helpers:pinGitHubActionDigestsToSemver",
+    "docker:pinDigests"
   ],
   "baseBranches": ["main"],
-  "addLabels": ["renovate", "type/{{updateType}}", "dep/{{depNameSanitized}}"]
+  "addLabels": ["renovate", "type/{{updateType}}", "dep/{{depNameSanitized}}"],
+  "packageRules": [
+    {
+      "matchManagers": ["github-actions"],
+      "semanticCommitType": "ci"
+    }
+  ]
 }
