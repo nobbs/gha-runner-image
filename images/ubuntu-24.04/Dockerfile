@@ -1,6 +1,6 @@
-# syntax=docker/dockerfile:1
+# syntax=docker/dockerfile:1@sha256:9857836c9ee4268391bb5b09f9f157f3c91bb15821bb77969642813b0d00518d
 
-FROM ubuntu:24.04 AS build
+FROM ubuntu:24.04@sha256:b59d21599a2b151e23eea5f6602f4af4d7d31c4e236d22bf0b62b86d2e386b8f AS build
 
 # renovate: datasource=github-releases depName=runner packageName=actions/runner
 ARG RUNNER_VERSION=2.325.0
@@ -53,7 +53,7 @@ chmod +x /usr/local/lib/docker/cli-plugins/docker-buildx
 EOF
 
 # renovate: datasource=docker depName=curl-image packageName=curlimages/curl
-FROM curlimages/curl:8.14.1 AS installer
+FROM curlimages/curl:8.14.1@sha256:9a1ed35addb45476afa911696297f8e115993df459278ed036182dd2cd22b67b AS installer
 
 RUN mkdir -p /tmp/bin
 
@@ -98,7 +98,7 @@ EOF
 
 ### Build final image
 
-FROM ubuntu:24.04 AS runner
+FROM ubuntu:24.04@sha256:b59d21599a2b151e23eea5f6602f4af4d7d31c4e236d22bf0b62b86d2e386b8f AS runner
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV RUNNER_MANUALLY_TRAP_SIG=1
