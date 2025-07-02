@@ -11,8 +11,11 @@ ARG RUNNER_CONTAINER_HOOKS_VERSION=0.7.0
 # renovate: datasource=github-releases depName=docker packageName=moby/moby
 ARG DOCKER_VERSION=28.3.0
 
-# # renovate: datasource=github-releases depName=buildx packageName=docker/buildx
+# # renovate: datasource=github-releases depName=docker-buildx packageName=docker/buildx
 ARG BUILDX_VERSION=0.25.0
+
+# renovate: datasource=github-releases depName=docker-compose packageName=docker/compose
+ARG COMPOSE_VERSION=2.38.1
 
 COPY ./files/etc/apt/apt.conf.d/99-fix-bad-proxy /etc/apt/apt.conf.d/99-fix-bad-proxy
 
@@ -44,12 +47,20 @@ EOF
 RUN <<EOF
 #!/bin/bash
 set -euo pipefail
+mkdir -p /usr/local/lib/docker/cli-plugins
+
+# Install docker binaries
 curl -fLo docker.tgz https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VERSION}.tgz
 tar xzf docker.tgz
 rm -f docker.tgz
-mkdir -p /usr/local/lib/docker/cli-plugins
+
+# Install docker-buildx
 curl -fLo /usr/local/lib/docker/cli-plugins/docker-buildx https://github.com/docker/buildx/releases/download/v${BUILDX_VERSION}/buildx-v${BUILDX_VERSION}.linux-amd64
 chmod +x /usr/local/lib/docker/cli-plugins/docker-buildx
+
+# Install docker-compose
+curl -fLo /usr/local/lib/docker/cli-plugins/docker-compose https://github.com/docker/compose/releases/download/v${COMPOSE_VERSION}/docker-compose-linux-x86_64
+chmod 755 /usr/local/lib/docker/cli-plugins/docker-compose
 EOF
 
 # renovate: datasource=docker depName=curl-image packageName=curlimages/curl
@@ -138,7 +149,7 @@ EOF
 WORKDIR /home/runner
 
 COPY --chown=runner:docker --from=build /actions-runner .
-COPY --chown=runner:docker --from=build /usr/local/lib/docker/cli-plugins/docker-buildx /usr/local/lib/docker/cli-plugins/docker-buildx
+COPY --chown=runner:docker --from=build /usr/local/lib/docker/cli-plugins /usr/local/lib/docker/cli-plugins
 
 # Copy binaries from previous installer stages
 COPY --link --from=install-kubectl /tmp/bin/kubectl /usr/local/bin/
