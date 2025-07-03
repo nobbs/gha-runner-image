@@ -17,8 +17,6 @@ ARG BUILDX_VERSION=0.25.0
 # renovate: datasource=github-releases depName=docker-compose packageName=docker/compose
 ARG COMPOSE_VERSION=2.38.1
 
-COPY ./files/etc/apt/apt.conf.d/99-fix-bad-proxy /etc/apt/apt.conf.d/99-fix-bad-proxy
-
 RUN <<EOF
 #!/bin/bash
 set -euo pipefail
@@ -115,8 +113,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV RUNNER_MANUALLY_TRAP_SIG=1
 ENV ACTIONS_RUNNER_PRINT_LOG_TO_STDOUT=1
 ENV ImageOS=ubuntu24
-
-COPY ./files/etc/apt/apt.conf.d/99-fix-bad-proxy /etc/apt/apt.conf.d/99-fix-bad-proxy
 
 RUN <<EOF
 #!/bin/bash
