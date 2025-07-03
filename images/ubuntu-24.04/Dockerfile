@@ -9,7 +9,7 @@ ARG RUNNER_VERSION=2.325.0
 ARG RUNNER_CONTAINER_HOOKS_VERSION=0.7.0
 
 # renovate: datasource=github-releases depName=docker packageName=moby/moby
-ARG DOCKER_VERSION=28.3.0
+ARG DOCKER_VERSION=28.3.1
 
 # renovate: datasource=github-releases depName=docker-buildx packageName=docker/buildx
 ARG BUILDX_VERSION=0.25.0
