@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 # renovate: datasource=github-releases depName=runner packageName=actions/runner
-RUNNER_VERSION=2.325.0
+RUNNER_VERSION=2.326.0
 
 # renovate: datasource=github-releases depName=runner-container-hooks packageName=actions/runner-container-hooks
 RUNNER_CONTAINER_HOOKS_VERSION=0.7.0
