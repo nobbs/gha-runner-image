@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.2.0](https://github.com/nobbs/gha-runner-image/compare/v0.1.0...v0.2.0) (2025-07-09)
+
+
+### Features
+
+* **docker:** refactor Dockerfile and scripts for improved installation process ([#51](https://github.com/nobbs/gha-runner-image/issues/51)) ([82209c3](https://github.com/nobbs/gha-runner-image/commit/82209c3dbe4d0a16bbf03b9f71fb45be89730efe))
+
+
+### Miscellaneous Chores
+
+* **base:** remove apt-get bad proxy fix ([#49](https://github.com/nobbs/gha-runner-image/issues/49)) ([ec1851c](https://github.com/nobbs/gha-runner-image/commit/ec1851c43506cdce497389f94051e7b3890ccbde))
+* **deps:** update dependency docker-compose to v2.38.2 ([#54](https://github.com/nobbs/gha-runner-image/issues/54)) ([b0a42ed](https://github.com/nobbs/gha-runner-image/commit/b0a42ed3be86c7c5ea93fd861a94e87e2441c150))
+* **deps:** update dependency helm to v3.18.4 ([#55](https://github.com/nobbs/gha-runner-image/issues/55)) ([d0ce00f](https://github.com/nobbs/gha-runner-image/commit/d0ce00f499173919d9be03dabbd29839431e8359))
+* **deps:** update dependency runner to v2.326.0 ([#52](https://github.com/nobbs/gha-runner-image/issues/52)) ([28f69d5](https://github.com/nobbs/gha-runner-image/commit/28f69d551a9c5557a2afa7dfe33138247eaf5b95))
+
+
+### Continuous Integration
+
+* **renovate:** add custom manager for regex-based versioning in shell scripts ([#53](https://github.com/nobbs/gha-runner-image/issues/53)) ([4405df6](https://github.com/nobbs/gha-runner-image/commit/4405df6c923429142a990efa032daa567bb4a215))
+
 ## [0.1.0](https://github.com/nobbs/gha-runner-image/compare/v0.0.1...v0.1.0) (2025-07-03)
 
 
