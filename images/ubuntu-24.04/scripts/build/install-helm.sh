@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 # renovate: datasource=github-releases depName=helm packageName=helm/helm
-HELM_VERSION=3.18.3
+HELM_VERSION=3.18.4
 
 # Download Helm
 curl -fLO https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz
