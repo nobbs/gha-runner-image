@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/nobbs/gha-runner-image/compare/v0.2.0...v0.2.1) (2025-07-10)
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency docker to v28.3.2 ([#56](https://github.com/nobbs/gha-runner-image/issues/56)) ([f4e644c](https://github.com/nobbs/gha-runner-image/commit/f4e644ce03dba45cdc79fb91b786810ad36d875e))
+
 ## [0.2.0](https://github.com/nobbs/gha-runner-image/compare/v0.1.0...v0.2.0) (2025-07-09)
 
 
