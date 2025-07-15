@@ -43,6 +43,9 @@ RUN --mount=type=bind,source=./scripts/build/configure-apt.sh,target=/configure-
 RUN --mount=type=bind,source=./scripts/build/install-git.sh,target=/install-git.sh \
   /install-git.sh
 
+RUN --mount=type=bind,source=./scripts/build/install-az-cli.sh,target=/install-az-cli.sh \
+  /install-az-cli.sh
+
 RUN --mount=type=bind,source=./scripts/build/configure-user.sh,target=/configure-user.sh \
   /configure-user.sh
 
