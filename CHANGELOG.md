@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.1](https://github.com/nobbs/gha-runner-image/compare/v0.2.0...v0.2.1) (2025-07-15)
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency docker to v28.3.2 ([#56](https://github.com/nobbs/gha-runner-image/issues/56)) ([f4e644c](https://github.com/nobbs/gha-runner-image/commit/f4e644ce03dba45cdc79fb91b786810ad36d875e))
+* **docker:** add Azure CLI ([#58](https://github.com/nobbs/gha-runner-image/issues/58)) ([44bb6cd](https://github.com/nobbs/gha-runner-image/commit/44bb6cdbe123a6c2399dd735e49dd756f471d427))
+
 ## [0.2.0](https://github.com/nobbs/gha-runner-image/compare/v0.1.0...v0.2.0) (2025-07-09)
 
 
