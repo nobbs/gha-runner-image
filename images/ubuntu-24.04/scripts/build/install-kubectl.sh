@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 # renovate: datasource=github-releases depName=kubectl packageName=kubernetes/kubernetes
-KUBECTL_VERSION=1.32.6
+KUBECTL_VERSION=1.33.3
 
 # Download kubectl
 curl -fLO https://dl.k8s.io/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl
