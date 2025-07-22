@@ -4,7 +4,7 @@
 DOCKER_VERSION=28.3.2
 
 # renovate: datasource=github-releases depName=docker-buildx packageName=docker/buildx
-BUILDX_VERSION=0.25.0
+BUILDX_VERSION=0.26.1
 
 # renovate: datasource=github-releases depName=docker-compose packageName=docker/compose
 COMPOSE_VERSION=2.38.2
