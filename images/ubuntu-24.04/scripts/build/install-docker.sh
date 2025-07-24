@@ -7,7 +7,7 @@ DOCKER_VERSION=28.3.2
 BUILDX_VERSION=0.25.0
 
 # renovate: datasource=github-releases depName=docker-compose packageName=docker/compose
-COMPOSE_VERSION=2.38.2
+COMPOSE_VERSION=2.39.1
 
 mkdir -p /usr/local/lib/docker/cli-plugins
 
