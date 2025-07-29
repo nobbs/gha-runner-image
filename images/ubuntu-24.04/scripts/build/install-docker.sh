@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 # renovate: datasource=github-releases depName=docker packageName=moby/moby
-DOCKER_VERSION=28.3.2
+DOCKER_VERSION=28.3.3
 
 # renovate: datasource=github-releases depName=docker-buildx packageName=docker/buildx
 BUILDX_VERSION=0.25.0
